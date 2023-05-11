@@ -1,44 +1,30 @@
-"" Source your .vimrc
-"source ~/.vimrc
+" Run :actionlist to get a list of Actions
 
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
+# Default Configuration
 set scrolloff=5
-
-" Do incremental searching.
 set incsearch
-
-" Don't use Ex mode, use Q for formatting.
 map Q gq
 
-
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
-
-
-" Find more examples here: https://jb.gg/share-ideavimrc
-
 "" Custom Configuration
-set clipboard=unnamed
+let mapleader = " "
+
+Plug 'preservim/nerdtree'
+nnoremap <leader>n :NERDTree<cr>
+
+set clipboard+=unnamed
 set clipboard+=ideaput
 set relativenumber
 set ignorecase
 
-nnoremap <c-f> :action GotoFile<CR>
-nnoremap <c-r> :action Run<CR>
-nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
-nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
-nnoremap <c--> :action SplitHorizontally<CR>
-nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c-/> :action FindInPath<CR>
+nnoremap <f5> :action Run<cr>
+nnoremap <leader>b :action RebuildGradleProject<cr>
+nnoremap <leader>f :action GotoFile<cr>
+nnoremap <leader>l :action ActivateLogcatToolWindow<cr>
+nnoremap <leader>t :action ActivateTerminalToolWindow<cr>
+nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
+nnoremap <leader>- :action SplitHorizontally<cr>
+nnoremap <leader>\ :action SplitVertically<cr>
+nnoremap <leader>/ :action FindInPath<cr>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
